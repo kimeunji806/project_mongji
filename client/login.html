@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>로그인</h1>
+      <hr />
+      <form action="#" id="login" name="login" method="post">
+        <ul id="user_login">
+          <li>
+            <label for="user-id" class="field">아이디</label>
+            <input type="text" id="user-id" name="user-id" required />
+          </li>
+          <li>
+            <label for="user-pw" class="field">비밀번호</label>
+            <input type="password" id="user-pw" name="user-pw" required />
+          </li>
+        </ul>
+        <button id="loginbtn" type="submit">로그인</button>
+        <hr />
+        <button id="lgbtn1" type="submit">아이디/비밀번호 찾기</button>
+        <button id="lgbtn2" type="submit">회원가입</button>
+      </form>
+    </div>
+    <script>
+      let id = document.querySelector("#user-id");
+      let pw = document.querySelector("#user-pw");
+
+      //로그인 성공,실패 알림창 띄우기
+      if ((id === data.id) & (pw === data.pw)) {
+        alert("로그인 성공");
+      } else {
+        alert("로그인 실패");
+      }
+    </script>
+  </body>
+</html>

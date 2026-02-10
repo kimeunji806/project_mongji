@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품목록</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>몽지문방구</h1>
+      </header>
+      <nav>
+        <ul>
+          <li>티셔츠</li>
+          <li>마스킹테이프</li>
+          <li>키링</li>
+        </ul>
+        <ul>
+          <input
+            type="text"
+            id="serch"
+            name="serch"
+            placeholder="상품명을 검색해주세요"
+            required
+          />
+        </ul>
+      </nav>
+      <select name="list" id="list">
+        <option value="recommend">추천순</option>
+        <option value="new">최신순</option>
+        <option value="sales">판매량순</option>
+      </select>
+      <main>
+        <div class="product-card">
+          <img src="img/두쫀쿠티셔츠.jpg" alt="두쫀쿠티셔츠" />
+          <p class="category">T-shirt</p>
+          <p class="name">두쫀쿠 티셔츠</p>
+          <p class="price">26,000원<span>⭐️⭐️⭐️⭐️⭐️(79)</span></p>
+        </div>
+        <div class="product-card">
+          <img src="img/옥수수티셔츠.jpg" alt="옥수수티셔츠" />
+          <p class="category">T-shirt</p>
+          <p class="name">옥수수 티셔츠</p>
+          <p class="price">26,000원<span>⭐️⭐️⭐️⭐️⭐️(77)</span></p>
+        </div>
+        <div class="product-card">
+          <img src="img/감자티셔츠.jpg" alt="감자티셔츠" />
+          <p class="category">T-shirt</p>
+          <p class="name">감자 티셔츠</p>
+          <p class="price">26,000원<span>⭐️⭐️⭐️⭐️⭐️(81)</span></p>
+        </div>
+        <div class="product-card">
+          <img src="img/베이킹마테.jpg" alt="베이킹마스킹테이프" />
+          <p class="category">Masking tape</p>
+          <p class="name">베이킹 마스킹테이프</p>
+          <p class="price">3,200원<span>⭐️⭐️⭐️⭐️⭐️(53)</span></p>
+        </div>
+        <div class="product-card">
+          <img src="img/두쫀쿠마테.jpg" alt="두쫀쿠마스킹테이프" />
+          <p class="category">Masking tape</p>
+          <p class="name">두쫀쿠 마스킹테이프</p>
+          <p class="price">3,200원<span>⭐️⭐️⭐️⭐️⭐️(85)</span></p>
+        </div>
+        <div class="product-card">
+          <img src="img/군고구마햄식이키링.jpg" />
+          <p class="category">Keyring</p>
+          <p class="name">군고구마 햄식이 키링</p>
+          <p class="price">8,000원<span>⭐️⭐️⭐️⭐️⭐️(21)</span></p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

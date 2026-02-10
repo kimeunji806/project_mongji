@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품등록</title>
+    <link rel="stylesheet" href="add.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>상품 등록</h1>
+      <hr />
+      <form action="#" id="add" name="add" method="post">
+        <ul>
+          <li>
+            <label for="add-name" class="field">상품명</label>
+            <input
+              type="text"
+              id="add-name"
+              name="add-name"
+              required
+              placeholder="상품명을 입력해주세요"
+            />
+          </li>
+          <li>
+            <label for="add-price" name="add-price" method="add-price"
+              >상품가격</label
+            >
+            <input
+              type="number"
+              id="add-price"
+              name="add-price"
+              required
+              placeholder="상품 가격을 입력해주세요"
+            />
+          </li>
+          <li>
+            <label
+              for="add-description"
+              name="add-description"
+              method="add-description"
+              >상품설명</label
+            >
+            <input
+              type="text"
+              id="add-description"
+              name="add-description"
+              required
+              placeholder="상품 설명을 입력해주세요"
+            />
+          </li>
+          <li>
+            <label for="add-img" name="add-img" method="add-img"
+              >이미지 등록</label
+            ><button>이미지 업로드</button>
+          </li>
+          <button type="button" id="addbtn" name="addbtn" class="addbtn">
+            상품 등록
+          </button>
+        </ul>
+      </form>
+    </div>
+    <script>
+      let addbtn = document.querySelector("#addbtn");
+
+      let products = [];
+
+      addbtn.addEventListener("click", addproduct);
+      function addbook() {
+        let productdata = add - name.value;
+        if (productdata == "") {
+          alert("상품명을 입력하세요");
+        } else {
+          if (products.indexOf(productdata) != -1) {
+            alert("이미 존재하는 상품입니다");
+          } else {
+            products.push(productdata);
+          }
+        }
+        product.value = "";
+        product.focus();
+        showFunc();
+      }
+    </script>
+  </body>
+</html>

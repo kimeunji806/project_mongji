@@ -1,0 +1,70 @@
+#container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul li {
+  list-style: none;
+  clear: both;
+  font-size: 1.1em;
+}
+#loginbtn {
+  background-color: #5f7fd4;
+  color: #fff;
+  width: 600px;
+  height: 70px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.field {
+  float: left;
+  width: 100px;
+  font-weight: bold;
+  font-size: 0.9em;
+  line-height: 55px;
+  text-align: center;
+  margin-right: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+  float: left;
+  width: 350px;
+  height: 35px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+#lgbtn1 {
+  width: 290px;
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 1.2em;
+}
+#lgbtn2 {
+  width: 290px;
+  height: 50px;
+  float: inline-end;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 1.2em;
+}
