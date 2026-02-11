@@ -45,5 +45,7 @@ create table shop_add( -- 상품등록
              shop_add_category varchar2(100) not null -- 상품 카테고리
  );
  
+ ALTER TABLE shop_add RENAME COLUMN shop__add_price to shop_add_price;
+ 
 select *
 from shop_add;

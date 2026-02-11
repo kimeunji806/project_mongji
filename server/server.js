@@ -52,38 +52,68 @@ app.post("/shop_login", async (req, res) => {
 
 // 상품 등록 api. 테이블명: shop_add
 app.post("/shop_add", async (req, res) => {
-  console.log(req.body); // req.params 속성.
   const { no, name, price, description, category } = req.body;
   const conn = await getConnection();
   const result = await conn.execute(
-    `insert into board(shop_add_no, shop_add_name, shop__add_price, shop_add_description, shop_add_category)
-     values(:no, :name, :price, :description, :category)
-     `,
-    {
-      no,
-      name,
-      price,
-      description,
-      category,
-    },
-    { autoCommit: true },
+    `INSERT INTO shop_add(shop_add_name, shop_add_price, shop_add_description)
+     VALUES(:name, :price, :description)`,
+    { name, price: Number(price), description },
+    { autoCommit: true }
   );
 
-  console.log(result);
-  // 정상 삭제되면 OK, 삭제 못하면 NG
   if (result.rowsAffected) {
     res.json({
       retCode: "OK",
-      shop_add_no: no,
       shop_add_name: name,
-      shop__add_price: price,
+      shop_add_price: price,
       shop_add_description: description,
-      shop_add_category: category,
     });
   } else {
     res.json({ retCode: "NG" });
   }
+  await conn.close();
 });
+
+  // 기존 상품 전체 조회
+app.get("/shop_list", async (req, res) => {
+  try {
+    const conn = await getConnection();
+    const result = await conn.execute(
+      `SELECT 
+          shop_add_name as "name",
+          shop_add_price as "price",
+          shop_add_description as "description"
+       FROM shop_add
+       ORDER BY shop_add_name`,
+      {},
+      { outFormat: oracledb.OUT_FORMAT_OBJECT }
+    );
+    res.json(result.rows);
+    await conn.close();
+  } catch (err) {
+    console.error("DB error:", err);
+    res.status(500).json({ error: err.message }); // JSON 반환
+  }
+});
+
+
+  // 상품 삭제
+app.delete("/shop_delete/:name", async (req, res) => {
+  const { name } = req.params;
+  const conn = await getConnection();
+  const result = await conn.execute(
+    `DELETE FROM shop_add WHERE shop_add_name = :name`,
+    { name },
+    { autoCommit: true }
+  );
+
+  if (result.rowsAffected) {
+    res.json({ retCode: "OK" });
+  } else {
+    res.json({ retCode: "NG" });
+  }
+});
+
 
 app.listen(3000, () => {
   console.log("http://localhost:3000");

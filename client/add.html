@@ -59,29 +59,22 @@
           </button>
         </ul>
       </form>
+      <hr>
+      <h2>상품 목록</h2>
+      <table border="1" id="productTable">
+        <thead>
+          <tr>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>설명</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody id="productList">
+
+        </tbody>
+      </table>
     </div>
-    <!-- <script>
-      let addbtn = document.querySelector("#addbtn");
-
-      let products = [];
-
-      addbtn.addEventListener("click", addproduct);
-      function addbook() {
-        let productdata = add - name.value;
-        if (productdata == "") {
-          alert("상품명을 입력하세요");
-        } else {
-          if (products.indexOf(productdata) != -1) {
-            alert("이미 존재하는 상품입니다");
-          } else {
-            products.push(productdata);
-          }
-        }
-        product.value = "";
-        product.focus();
-        showFunc();
-      }
-    </script> -->
     <script src="add.js"></script>
   </body>
 </html>

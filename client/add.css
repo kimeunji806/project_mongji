@@ -1,129 +1,155 @@
-/* 기본 초기화 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Pretendard", Arial, sans-serif;
-}
+/* add.css */
 
-/* 배경 */
+/* 전체 배경 및 폰트 설정 */
 body {
-  background-color: #f6f7fb;
-  color: #222;
+  background-color: #f8f9fa;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
 }
 
-/* 컨테이너 */
 #container {
-  width: 100%;
-  max-width: 520px;
-  margin: 80px auto;
-  background-color: #fff;
-  border-radius: 16px;
+  background-color: #ffffff;
   padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
 }
 
-/* 제목 */
-#container h1 {
+h1, h2 {
   text-align: center;
-  font-size: 26px;
+  color: #222;
   margin-bottom: 20px;
 }
 
-/* 구분선 */
 hr {
-  border: none;
+  border: 0;
   height: 1px;
-  background-color: #eee;
-  margin-bottom: 30px;
+  background: #eee;
+  margin: 25px 0;
 }
 
-/* 폼 리스트 */
-form ul {
+/* 폼 스타일 */
+ul {
   list-style: none;
+  padding: 0;
 }
 
-/* 항목 */
-form li {
+li {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-/* 라벨 */
 label {
-  font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
 }
 
-/* 인풋 */
+/* 입력창 스타일 */
 input[type="text"],
 input[type="number"] {
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 10px;
+  padding: 12px 15px;
   border: 1px solid #ddd;
-  font-size: 14px;
-}
-
-input::placeholder {
-  color: #aaa;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #6f7cf7;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
-/* number 타입 input 증감 버튼 제거 (Chrome, Edge, Safari) */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+/* Chrome, Safari, Edge, Opera에서 화살표 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* number 타입 input 증감 버튼 제거 (Firefox) */
-input[type="number"] {
+/* Firefox에서 화살표 제거 */
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
-/* 이미지 업로드 영역 */
-form li:nth-child(4) {
-  gap: 12px;
-}
-
-form li:nth-child(4) button {
-  height: 80px; /* 🔥 높이 증가 */
-  border-radius: 14px;
-  border: 2px dashed #cfd3ff;
-  background-color: #fafbff;
+/* 버튼 스타일 */
+button {
   cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
 }
 
-form li:nth-child(4) button:hover {
-  background-color: #eef0ff;
-  border-color: #6f7cf7;
-  color: #6f7cf7;
+/* 이미지 업로드 버튼 */
+li button {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px 15px;
+  margin-top: 5px;
+  width: fit-content;
 }
 
-/* 상품 등록 버튼 */
+li button:hover {
+  background-color: #5a6268;
+}
+
+/* 상품 등록 메인 버튼 */
 .addbtn {
   width: 100%;
-  height: 52px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #6f7cf7, #8e6ff7);
-  color: #fff;
+  padding: 15px;
+  background-color: #4a90e2;
+  color: white;
   font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  margin-top: 10px;
 }
 
 .addbtn:hover {
-  opacity: 0.9;
+  background-color: #357abd;
+}
+
+/* 테이블 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f1f3f5;
+  color: #495057;
+  padding: 12px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* 삭제 버튼 스타일 */
+.delete-btn {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background-color: #fa5252;
 }
