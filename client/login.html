@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
     <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div id="container">
@@ -13,30 +17,22 @@
       <form action="#" id="login" name="login" method="post">
         <ul id="user_login">
           <li>
-            <label for="user-id" class="field">아이디</label>
+            <label for="user-id" class="field"></label>
+            <i class="fa-solid fa-user"></i>
             <input type="text" id="user-id" name="user-id" required />
           </li>
           <li>
-            <label for="user-pw" class="field">비밀번호</label>
+            <label for="user-pw" class="field"></label>
+            <i class="fa-solid fa-lock"></i>
             <input type="password" id="user-pw" name="user-pw" required />
           </li>
         </ul>
         <button id="loginbtn" type="submit">로그인</button>
         <hr />
-        <button id="lgbtn1" type="submit">아이디/비밀번호 찾기</button>
-        <button id="lgbtn2" type="submit">회원가입</button>
+        <button id="lgbtn1" type="button">아이디/비밀번호 찾기</button>
+        <button id="lgbtn2" type="button">회원가입</button>
       </form>
     </div>
-    <script>
-      let id = document.querySelector("#user-id");
-      let pw = document.querySelector("#user-pw");
-
-      //로그인 성공,실패 알림창 띄우기
-      if ((id === data.id) & (pw === data.pw)) {
-        alert("로그인 성공");
-      } else {
-        alert("로그인 실패");
-      }
-    </script>
+    <script src="login.js"></script>
   </body>
 </html>

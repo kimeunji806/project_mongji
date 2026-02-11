@@ -93,17 +93,19 @@ form li:nth-child(4) {
   gap: 12px;
 }
 
-form li button {
-  height: 44px;
-  border-radius: 10px;
-  border: 1px dashed #ccc;
-  background-color: #fafafa;
+form li:nth-child(4) button {
+  height: 80px; /* 🔥 높이 증가 */
+  border-radius: 14px;
+  border: 2px dashed #cfd3ff;
+  background-color: #fafbff;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-form li button:hover {
-  background-color: #f0f2ff;
+form li:nth-child(4) button:hover {
+  background-color: #eef0ff;
   border-color: #6f7cf7;
   color: #6f7cf7;
 }

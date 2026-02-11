@@ -1,13 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품목록</title>
     <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/BMDOHYEON.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="container">
+      <div class="top-icons">
+        <a class="icon-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge">2</span>
+        </a>
+        <a><i class="fa-solid fa-user"></i></a>
+        <a class="icon-bell">
+          <i class="fa-solid fa-bell"></i>
+          <span class="badge">5</span>
+        </a>
+        <a><i class="fa-solid fa-right-from-bracket"></i></a>
+      </div>
       <header>
         <h1>몽지문방구</h1>
       </header>
@@ -32,7 +52,7 @@
         <option value="new">최신순</option>
         <option value="sales">판매량순</option>
       </select>
-      <main>
+      <main id="productList">
         <div class="product-card">
           <img src="img/두쫀쿠티셔츠.jpg" alt="두쫀쿠티셔츠" />
           <p class="category">T-shirt</p>
@@ -71,5 +91,6 @@
         </div>
       </main>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
