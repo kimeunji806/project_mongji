@@ -20,8 +20,10 @@ app.get("/", (req, res) => {
 // 상품 목록 조회 api. 테이블명: shop
 app.get("/shop", async (req, res) => {
   const conn = await getConnection();
-  const { rows } = await conn.execute(`select * from shop order by shop_no`);
-  res.json(rows);
+  const result = await conn.execute(`select * from shop order by shop_no`, [], {
+    outFormat: oracledb.OUT_FORMAT_OBJECT,
+  });
+  res.json(result.rows);
 });
 
 // 로그인 api. 테이블명: shop_login.
@@ -52,21 +54,23 @@ app.post("/shop_login", async (req, res) => {
 
 // 상품 등록 api. 테이블명: shop_add
 app.post("/shop_add", async (req, res) => {
-  const { no, name, price, description, category } = req.body;
+  const { name, price, description, category } = req.body;
   const conn = await getConnection();
   const result = await conn.execute(
-    `INSERT INTO shop_add(shop_add_name, shop_add_price, shop_add_description)
-     VALUES(:name, :price, :description)`,
-    { name, price: Number(price), description },
-    { autoCommit: true }
+    `INSERT INTO shop(
+     shop_no, shop_name, shop_price, shop_description, shop_category)
+     VALUES(shop_seq.NEXTVAL, :name, :price, :description, :category)`,
+    { name, price, description, category },
+    { autoCommit: true },
   );
 
   if (result.rowsAffected) {
     res.json({
       retCode: "OK",
-      shop_add_name: name,
-      shop_add_price: price,
-      shop_add_description: description,
+      SHOP_NAME: name,
+      SHOP_PRICE: price,
+      SHOP_DESCRIPTION: description,
+      SHOP_CATEGORY: category,
     });
   } else {
     res.json({ retCode: "NG" });
@@ -74,46 +78,55 @@ app.post("/shop_add", async (req, res) => {
   await conn.close();
 });
 
-  // 기존 상품 전체 조회
+// 기존 상품 목록 조회
 app.get("/shop_list", async (req, res) => {
-  try {
-    const conn = await getConnection();
-    const result = await conn.execute(
-      `SELECT 
-          shop_add_name as "name",
-          shop_add_price as "price",
-          shop_add_description as "description"
-       FROM shop_add
-       ORDER BY shop_add_name`,
-      {},
-      { outFormat: oracledb.OUT_FORMAT_OBJECT }
-    );
-    res.json(result.rows);
-    await conn.close();
-  } catch (err) {
-    console.error("DB error:", err);
-    res.status(500).json({ error: err.message }); // JSON 반환
-  }
+  const conn = await getConnection();
+  const result = await conn.execute(
+    `
+      SELECT
+      SHOP_NAME,
+      SHOP_PRICE,
+      SHOP_DESCRIPTION,
+      SHOP_CATEGORY
+      FROM shop`,
+    {},
+    {
+      outFormat: oracledb.OUT_FORMAT_OBJECT,
+    },
+  );
+  res.json(result.rows);
+  await conn.close();
 });
 
-
-  // 상품 삭제
+// 상품 삭제
 app.delete("/shop_delete/:name", async (req, res) => {
   const { name } = req.params;
   const conn = await getConnection();
   const result = await conn.execute(
-    `DELETE FROM shop_add WHERE shop_add_name = :name`,
+    `DELETE FROM shop WHERE shop_name = :name`,
     { name },
-    { autoCommit: true }
+    { autoCommit: true },
   );
+  await conn.close();
 
-  if (result.rowsAffected) {
+  if (result.rowsAffected > 0) {
     res.json({ retCode: "OK" });
   } else {
     res.json({ retCode: "NG" });
   }
 });
 
+//카테고리 조회
+app.get("/shop_category", async (req, res) => {
+  const conn = await getConnection();
+  const result = await conn.execute(
+    `SELECT category_name FROM shop_category ORDER BY category_name`,
+    [],
+    { outFormat: oracledb.OUT_FORMAT_OBJECT },
+  );
+  res.json(result.rows);
+  await conn.close();
+});
 
 app.listen(3000, () => {
   console.log("http://localhost:3000");

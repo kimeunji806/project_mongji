@@ -20,6 +20,7 @@ function login() {
     .then((data) => {
       if (data.success) {
         alert(data.msg);
+        localStorage.setItem("loginUser", data.userId);
         if (data.userId && data.userId.trim().toLowerCase() === "admin") {
           window.location.href = "add.html"; //관리자 페이지
         } else {

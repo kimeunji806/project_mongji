@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품등록</title>
     <link rel="stylesheet" href="add.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div id="container">
+      <div class="top-icons">
+        <a class="icon-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge">2</span>
+        </a>
+        <a><i class="fa-solid fa-user"></i></a>
+        <a class="icon-bell">
+          <i class="fa-solid fa-bell"></i>
+          <span class="badge">5</span>
+        </a>
+        <a><i class="fa-solid fa-right-from-bracket" id="logoutIcon"></i></a>
+      </div>
       <h1>상품 등록</h1>
       <hr />
       <form action="#" id="add" name="add" method="post">
@@ -50,6 +66,13 @@
             />
           </li>
           <li>
+            <label for="add-category" name="add-category" method="add-category"
+              >카테고리</label
+            >
+            <select name="add-category" id="add-category"></select>
+          </li>
+
+          <li>
             <label for="add-img" name="add-img" method="add-img"
               >이미지 등록</label
             ><button>이미지 업로드</button>
@@ -59,7 +82,7 @@
           </button>
         </ul>
       </form>
-      <hr>
+      <hr />
       <h2>상품 목록</h2>
       <table border="1" id="productTable">
         <thead>
@@ -67,12 +90,11 @@
             <th>상품명</th>
             <th>가격</th>
             <th>설명</th>
+            <th>카테고리</th>
             <th>삭제</th>
           </tr>
         </thead>
-        <tbody id="productList">
-
-        </tbody>
+        <tbody id="productList"></tbody>
       </table>
     </div>
     <script src="add.js"></script>

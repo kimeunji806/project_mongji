@@ -16,57 +16,60 @@ body {
 
 #container {
   background-color: #ffffff;
-  padding: 40px 50px;
+  padding: 70px 80px; /* 안쪽 여유 공간 늘림 */
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  width: 450px; /* 가로 유지 */
+  min-height: 550px; /* 세로 길게 */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 #container h1 {
-  font-size: 28px;
+  font-size: 32px; /* 제목 글씨 키움 */
   color: #333333;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 #container hr {
   border: none;
   border-top: 1px solid #e0e0e0;
-  margin: 20px 0;
+  margin: 20px 0 35px 0;
 }
 
 #user_login {
   list-style: none;
   text-align: left;
   padding: 0;
+  flex-grow: 1; /* 세로 공간 활용 */
 }
 
 #user_login li {
-  margin-bottom: 20px;
-  position: relative; /* 아이콘 배치용 */
+  margin-bottom: 30px; /* 입력창 간격 넉넉 */
+  position: relative; /* 아이콘 위치용 */
 }
 
-/* input 내부 아이콘용 스타일 */
 #user_login li i {
   position: absolute;
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: #888888;
-  pointer-events: none; /* 클릭이 input에 방해되지 않도록 */
+  pointer-events: none;
   font-size: 16px;
 }
 
-/* input 스타일 */
 #user-login input[type="text"],
 #user-login input[type="password"],
 #user-id,
 #user-pw {
   width: 100%;
-  padding: 10px 12px 10px 35px; /* 왼쪽 공간 확보 */
+  padding: 16px 18px 16px 45px; /* 높이 늘림 */
   border: 1px solid #dcdcdc;
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 8px;
+  font-size: 16px;
   outline: none;
   transition: 0.3s;
 }
@@ -74,18 +77,18 @@ body {
 #user-id:focus,
 #user-pw:focus {
   border-color: #7a5cff;
-  box-shadow: 0 0 5px rgba(122, 92, 255, 0.3);
+  box-shadow: 0 0 6px rgba(122, 92, 255, 0.3);
 }
 
 button {
   width: 100%;
-  padding: 12px;
+  padding: 16px; /* 버튼 높이 증가 */
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 18px;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 #loginbtn {
@@ -112,9 +115,9 @@ button {
 .alert {
   background-color: #ffe5e5;
   color: #d32f2f;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 14px;
-  margin-top: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-top: 15px;
   text-align: left;
 }
