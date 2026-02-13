@@ -1,6 +1,7 @@
 const tbtn = document.querySelector("#tc");
 const mbtn = document.querySelector("#mc");
 const kbtn = document.querySelector("#kc");
+const mainbtn = document.querySelector("#main");
 
 const main = document.querySelector("#productList"); //상품 목록
 
@@ -42,6 +43,11 @@ function makeProductCard(item) {
 
   return card; // 카드 DOM 반환
 }
+
+mainbtn.addEventListener("click", () => {
+  currentCategory = ""; // 필터 상태 설정
+  loadProducts(); // 목록 갱신
+});
 
 tbtn.addEventListener("click", () => {
   currentCategory = "티셔츠"; // 필터 상태 설정

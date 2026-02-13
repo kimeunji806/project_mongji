@@ -73,9 +73,9 @@ body {
 header {
   background: linear-gradient(90deg, #5b8def, #9b59b6);
   padding: 50px 0;
-  border-radius: 15px;
+  border-radius: 20px;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 header h1 {
@@ -91,7 +91,7 @@ nav {
   background-color: #fff;
   padding: 25px;
   border-radius: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 
   display: flex;
   flex-direction: column;
@@ -130,7 +130,7 @@ nav li:hover {
 #list {
   display: block;
   margin-left: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
