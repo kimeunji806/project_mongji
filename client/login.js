@@ -11,7 +11,7 @@ function login() {
   let lgid = userId.value;
   let lgpw = userPw.value;
 
-  fetch("http://localhost:3000/shop_login", {
+  fetch("http://192.168.0.34:3000/shop_login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: lgid, password: lgpw }),

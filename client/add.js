@@ -4,7 +4,7 @@ const logoutIcon = document.querySelector("#logoutIcon");
 
 // 페이지 로드시 기존 상품 가져오기
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:3000/shop_list")
+  fetch("http://192.168.0.34:3000/shop_list")
     .then((resp) => resp.json())
     .then((data) => {
       if (!Array.isArray(data)) {
@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // 페이지 로드시 카테고리 불러오기
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:3000/shop_category")
+  fetch("http://192.168.0.34:3000/shop_category")
     .then((resp) => resp.json())
     .then((data) => {
       const select = document.querySelector("#add-category");
@@ -45,7 +45,7 @@ addBtn.addEventListener("click", () => {
     return;
   }
 
-  fetch("http://localhost:3000/shop_add", {
+  fetch("http://192.168.0.34:3000/shop_add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -112,7 +112,7 @@ function makeRow(data) {
       alert("상품명을 찾을 수 없습니다.");
       return;
     }
-    fetch(`http://localhost:3000/shop_delete/${encodeURIComponent(name)}`, {
+    fetch(`http://192.168.0.34:3000/shop_delete/${encodeURIComponent(name)}`, {
       method: "DELETE",
     })
       .then((resp) => resp.json())

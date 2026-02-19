@@ -10,11 +10,10 @@ let currentCategory = null;
 const logoutIcon = document.querySelector("#logoutIcon");
 
 function loadProducts() {
-  fetch("http://localhost:3000/shop")
+  fetch("http://192.168.0.34:3000/shop")
     .then((res) => res.json())
     .then((list) => {
       main.innerHTML = ""; // 기존 목록 초기화
-
       list.forEach((item) => {
         // 현재 필터가 없거나 일치하는 카테고리만 표시
         if (!currentCategory || item.SHOP_CATEGORY === currentCategory) {

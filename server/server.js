@@ -128,6 +128,6 @@ app.get("/shop_category", async (req, res) => {
   await conn.close();
 });
 
-app.listen(3000, () => {
+app.listen(3000, "0.0.0.0", () => {
   console.log("http://localhost:3000");
 }); // 서버 실행. (3000번 포트)
